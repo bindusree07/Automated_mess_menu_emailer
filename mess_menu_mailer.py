@@ -25,15 +25,6 @@ def get_stored_password():
     pw = os.environ.get("EMAIL_PASSWORD")
     if pw:
         return pw
-    try:
-        import keyring
-        pw = keyring.get_password("mess_mailer", "email")
-        if pw:
-            return pw
-    except Exception:
-        # keyring not installed or no entry found — ignore silently
-        pass
-    return None
 
 
 def load_schedule(path):
